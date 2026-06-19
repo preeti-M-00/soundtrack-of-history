@@ -17,10 +17,10 @@ Every year you land on transforms the entire page — the background image, colo
 - **React** + Vite
 - **Framer Motion** for animations
 - **Tailwind CSS** for styling
+- **Unsplash** — real archival and aesthetic photos for each era's background
 - **World Bank Open Data API** — population & life expectancy
-- **Last.fm API** — music metadata
-- **MuffinLabs Wikipedia API** — historical events by date
-- **YouTube embeds** — era soundtrack playback
+- **MuffinLabs Wikipedia API** — historical events by date, used in the birthday feature
+- **YouTube embeds** — era soundtrack playback via the vinyl player
 
 ## 🚀 Running Locally
 
@@ -30,12 +30,6 @@ Clone the repository:
 git clone https://github.com/preeti-M-00/soundtrack-of-history.git
 cd soundtrack-of-history
 npm install
-```
-
-Create a `.env` file in the root and add your API key:
-
-```
-VITE_LASTFM_API_KEY=your_key_here
 ```
 
 Then start the dev server:
@@ -64,7 +58,7 @@ EraBackground   MusicPlayer  StatsPanel  NewsCards
 - Debouncing API calls to avoid hammering free-tier rate limits while scrubbing a continuous slider
 - Designing graceful fallbacks — every API call has hardcoded backup data so the UI never breaks or shows empty states
 - Coordinating multiple independent animation timelines (Framer Motion) without jank
-- Working within the real constraints of free APIs (Last.fm has no historical charts, Spotify blocks browser-only auth for client credentials flow) and choosing pragmatic workarounds over over-engineering
+- Working within the real constraints of free APIs (e.g. no free service offers historically accurate weekly music charts) and choosing pragmatic, hardcoded workarounds over over-engineering
 
 ## 📄 License
 
