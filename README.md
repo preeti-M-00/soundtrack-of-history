@@ -1,16 +1,71 @@
-# React + Vite
+# 🎵 Soundtrack of History
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An immersive web experience that lets you travel through 100 years of human history — from the Roaring Twenties to the modern day — by simply dragging a timeline.
 
-Currently, two official plugins are available:
+## ✨ What it does
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Every year you land on transforms the entire page — the background image, color palette, typography, and music all shift to match that decade. Drag from 1920 to 2024 and watch the world change around you.
 
-## React Compiler
+- 🎨 **Era-morphing UI** — real archival photos crossfade per decade, with unique fonts, colors, and textures for each era
+- 💿 **Spinning vinyl player** — click to hear the iconic song of that decade play
+- 🌍 **Live historical data** — real-time population and life expectancy pulled from the World Bank API, switchable by country (Global, US, UK, India)
+- 📰 **Floating news cards** — major historical events scattered around the screen, with country-specific events for the US, UK, and India
+- 🎂 **"My Birthday" universe** — enter your exact birthdate to reveal the moon phase, zodiac constellation, day of the week, season, and a real historical headline from that day
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Built With
 
-## Expanding the ESLint configuration
+- **React** + Vite
+- **Framer Motion** for animations
+- **Tailwind CSS** for styling
+- **World Bank Open Data API** — population & life expectancy
+- **Last.fm API** — music metadata
+- **MuffinLabs Wikipedia API** — historical events by date
+- **YouTube embeds** — era soundtrack playback
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Running Locally
+
+Clone the repository:
+
+```bash
+git clone https://github.com/preeti-M-00/soundtrack-of-history.git
+cd soundtrack-of-history
+npm install
+```
+
+Create a `.env` file in the root and add your API key:
+
+```
+VITE_LASTFM_API_KEY=your_key_here
+```
+
+Then start the dev server:
+
+```bash
+npm run dev
+```
+
+## 📐 Architecture
+
+The entire app is driven by a single `year` state in `App.jsx`. Every component — background, music, stats, news cards — reads from this one source of truth, keeping the data flow predictable and easy to reason about.
+
+```
+year state changes
+        ↓
+useEraTheme(year) → returns the matching era theme
+        ↓
+   ┌────┴─────────┬──────────┬───────────┐
+   ↓               ↓          ↓           ↓
+EraBackground   MusicPlayer  StatsPanel  NewsCards
+(images/colors)  (vinyl+yt)  (World Bank)(country events)
+```
+
+## 🎯 What I learned
+
+- Debouncing API calls to avoid hammering free-tier rate limits while scrubbing a continuous slider
+- Designing graceful fallbacks — every API call has hardcoded backup data so the UI never breaks or shows empty states
+- Coordinating multiple independent animation timelines (Framer Motion) without jank
+- Working within the real constraints of free APIs (Last.fm has no historical charts, Spotify blocks browser-only auth for client credentials flow) and choosing pragmatic workarounds over over-engineering
+
+## 📄 License
+
+MIT
