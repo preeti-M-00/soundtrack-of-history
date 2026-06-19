@@ -1,4 +1,4 @@
-# 🎵 Soundtrack of History
+<img width="739" height="358" alt="image" src="https://github.com/user-attachments/assets/8af19910-6709-422c-a4c3-3306b47430f4" /># 🎵 Soundtrack of History
 
 An immersive web experience that lets you travel through 100 years of human history — from the Roaring Twenties to the modern day — by simply dragging a timeline.
 
